@@ -15,6 +15,7 @@ fls.write(str(file_num)+'\n')
 print(file_num,data_pos)
 for i in range(file_num):
     fl.seek(len('FILELINK_____END'),1)
+    offset, = struct.unpack('<I',fl.read(4))
     size, = struct.unpack('<I',fl.read(4))
     temp, = struct.unpack('B',fl.read(1))
     name=""
